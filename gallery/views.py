@@ -14,6 +14,21 @@ from django.db.models import F, Sum
 from django.contrib.auth.forms import UserCreationForm
 from django.views.decorators.csrf import csrf_exempt
 
+
+def register(request):
+    form = SignUpForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(email=email, password=raw_password)
+            login(request, user)
+            return HttpResponseRedirect('/')
+        else:
+            form = SignUpForm(request.POST or None)
+    return render(request, 'register.html', {'form': form})
+
 def upload_image(request):
 	form = ImagesForm(request.POST or None,request.FILES or None)
 	template = 'imageForm.html'
