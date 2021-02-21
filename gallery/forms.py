@@ -16,11 +16,11 @@ class SignUpForm(UserCreationForm):
         fields = ('name', 'email','mobile','password1', 'password2')
 
     widgets = {
-            'name': forms.TextInput(attrs={'placeholder': 'Enter School-Code','class':'form-control'}),
-            'email': forms.TextInput(attrs={'placeholder': 'Enter User-Id','class':'form-control'}),
-            'password1': forms.TextInput(attrs={'placeholder': 'Enter School-Code','class':'form-control'}),
-            'password2': forms.TextInput(attrs={'placeholder': 'Enter School-Code','class':'form-control'}),
-            'mobile': forms.Textarea(attrs={'cols':10,'rows':5,'placeholder': 'Enter Your Feedback','class':'form-control'}),
+            'name': forms.TextInput(attrs={'placeholder': 'Enter Name','class':'form-control'}),
+            'email': forms.TextInput(attrs={'placeholder': 'Enter Email-Id','class':'form-control'}),
+            'password1': forms.TextInput(attrs={'placeholder': 'Enter Password','class':'form-control'}),
+            'password2': forms.TextInput(attrs={'placeholder': 'Confirm Password','class':'form-control'}),
+            'mobile': forms.Textarea(attrs={'cols':10,'rows':5,'placeholder': 'Enter Mobile Number','class':'form-control'}),
         }
 
 class OTP_Verification(forms.ModelForm):
